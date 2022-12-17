@@ -1,19 +1,19 @@
 # Doc: https://autovice.jp/articles/146
 # Doc: https://tachesimazzoca.github.io/wiki/rails3/unicorn.html
-rails_root = File.expand_path('../../', __FILE__)
+rails_root = File.expand_path('../../../', __FILE__)
 
-ENV['BUNDLE_GEMFILE'] = rails_root + '/Gemfile'
+ENV['BUNDLE_GEMFILE'] = rails_root + '/current/Gemfile'
 
 worker_processes 2
 timeout 300
 
 # Unicornの起動コマンドが実行されるディレクトリ
-working_directory rails_root
-pid "#{rails_root}/tmp/pids/unicorn.pid"
+working_directory "#{rails_root}/current"
+pid "#{rails_root}/shared/tmp/pids/unicorn.pid"
 listen 3000
-listen "#{rails_root}/tmp/sockets/unicorn.sock"
-stdout_path "#{rails_root}/log/unicorn_stdout.log"
-stderr_path "#{rails_root}/log/unicorn_stderr.log"
+listen "#{rails_root}/shared/tmp/sockets/unicorn.sock"
+stdout_path "#{rails_root}/shared/log/unicorn_stdout.log"
+stderr_path "#{rails_root}/shared/log/unicorn_stderr.log"
 
 # Unicornの再起動をダウンタイムなしで行う。この設定によりアプリケーションがダウンすることなくデプロイすることが出来る。（ホットデプロイ）
 # ※ kill -USE2 PID
@@ -36,7 +36,7 @@ before_fork do |server, worker|
       sig = (worker.nr + 1) >= server.worker_processes ? :QUIT : :TTOU
       Process.kill(sig, File.read(old_pid).to_i)
     rescue Errno::ENOENT, Errno::ESRCH => e
-      logger.errror e
+      Rails.logger.error(e)
     end
   end
 end
