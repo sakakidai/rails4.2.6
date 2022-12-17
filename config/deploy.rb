@@ -14,6 +14,10 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bund
 # 保存するリリースの数
 set :keep_releases, 5
 
+# rbenvの設定
+set :rbenv_type, :user
+set :rbenv_ruby, '2.6.6'
+
 # unicornの設定
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }

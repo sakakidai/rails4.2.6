@@ -53,6 +53,7 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'capistrano-bundler'
+  gem 'capistrano-rbenv'
 end
 
 gem 'unicorn'
