@@ -39,5 +39,5 @@ test:
 production:
   <<: *default
   database: rails4_2_6_production
-  username: rails4_2_6
-  password: <%= ENV['RAILS4_2_6_DATABASE_PASSWORD'] %>
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>

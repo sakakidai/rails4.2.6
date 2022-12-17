@@ -48,7 +48,13 @@ group :development do
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'pry-stack_explorer'
+
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
+  gem 'capistrano-bundler'
 end
 
 gem 'unicorn'
-
+gem 'unicorn-rails'
+gem 'dotenv-rails'
