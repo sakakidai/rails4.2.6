@@ -56,5 +56,10 @@ group :development do
   gem 'capistrano-rbenv'
 end
 
+gem 'redis', '~> 3.3'
+gem 'redis-rails', '~> 5.0'
 gem 'unicorn'
 gem 'dotenv-rails'
+gem 'sidekiq', '~> 4.1'
+gem 'clockwork'
+
