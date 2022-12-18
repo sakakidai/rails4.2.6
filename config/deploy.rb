@@ -18,11 +18,13 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.6.6'
 
 # unicornの設定
-set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
+set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 
 # sidekiqの設定
+# set :init_system, :systemd # TODO: systemdに変更する
 set :sidekiq_config, -> { "#{current_path}/config/sidekiq.yml" }
+set :sidekiq_pid, -> { "#{shared_path}/tmp/pids/sidekiq.pid" }
 set :sidekiq_tole, :worker
 
 namespace :deploy do
