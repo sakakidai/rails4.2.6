@@ -57,5 +57,4 @@ group :development do
 end
 
 gem 'unicorn'
-gem 'unicorn-rails'
 gem 'dotenv-rails'
