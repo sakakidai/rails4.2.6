@@ -21,6 +21,10 @@ set :rbenv_ruby, '2.6.6'
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 
+# sidekiqの設定
+set :sidekiq_config, -> { "#{current_path}/config/sidekiq.yml" }
+set :sidekiq_tole, :worker
+
 namespace :deploy do
   after :publishing, :restart
 

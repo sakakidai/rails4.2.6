@@ -54,6 +54,7 @@ group :development do
   gem 'capistrano3-unicorn'
   gem 'capistrano-bundler'
   gem 'capistrano-rbenv'
+  gem 'capistrano-sidekiq'
 end
 
 gem 'redis', '~> 3.3'
